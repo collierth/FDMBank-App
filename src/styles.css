@@ -1,1 +1,226 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --body-font: 'Montserrat', sans-serif;
+  --primary-color: #07d2be;
+  --body-color: rgb(234, 234, 234);
+  --text-color: grey;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+}
+
+.add-button {
+  background: linear-gradient(to bottom right, rgb(60, 220, 153), var(--primary-color));
+  color: white;
+  border: none;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all .2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: .6em;
+}
+
+.add-button:hover {
+  box-shadow: 0px 3px 10px 4px rgba(0,0,0,.1);
+  scale: 102%;
+}
+
+.table-button {
+  background: var(--button-color, transparent);
+  color: var(--button-text, gray);
+  border: var(--button-border, 1px solid gray);
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all .2s ease;
+  cursor: pointer;
+  margin-right: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-button:hover {
+  filter: brightness(0.8);
+  scale: 105%;
+}
+
+.backdrop {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100vh; 
+    background-color: rgba(0,0,0,0.6);
+}
+
+
+.modal-content {
+    background-color: white;
+    width: 30%;
+    height: 60vh;
+    border-radius: 20px;
+    margin: 100px 0 0 35%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.account-fields {
+    display: flex;
+    gap: 2em;
+}
+
+.modal-input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+    font-size: 16px;
+}
+
+.customer-input::placeholder {
+    color: rgb(173, 173, 173);
+}
+
+.radio-btns {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.modal-btns {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.cancel-button {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    transition: all .2s ease;
+    cursor: pointer;
+    color: #f0235a;
+}
+
+.cancel-button:hover {
+    filter: brightness(0.5);
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.search-functions {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reset-icon {
+    width: 100%;
+    height: 100%;
+    transition: transform .3s;
+    cursor: pointer;
+}
+
+.reset-icon:hover {
+    animation: rotate360 .3s linear;
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.search-criteria {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.searchbar {
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+}
+
+.searchfield {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 20px;
+    color: grey;
+}
+
+.searchbar .material-icons {
+    font-size: 48px;
+    color: grey;
+}
+
+.search-button {
+    background: linear-gradient(to bottom right, rgb(60, 220, 153), var(--primary-color));
+    color: white;
+    border: none;
+    width: 100px;
+    height: 100%;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    box-shadow: 0px 3px 10px 4px rgba(0,0,0,.1);
+    scale: 102%;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .table-button {
+      font-size: 10px;
+      padding: 6px;
+      width: 40px;
+  }
+
+  .add-button {
+      font-size: 12px;
+  }
+}
+

@@ -1,0 +1,35 @@
+<div id="createModal" class="backdrop">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="modal-content" id="accountForm">
+        <div class="modal-header">
+            <span>Create New Account</span>
+        </div>
+
+        <div class="modal-fields">
+            <label>Customer ID</label>
+            <select formControlName="customerId">
+                <option *ngFor="let customer of customerIDs" [value]="customer">{{customer}}</option>
+            </select>
+            <input matInput formControlName="balance" placeholder="Balance" class="modal-input">
+            <div class="account-fields">
+                <input matInput formControlName="interestRate" placeholder="Interest Rate" class="modal-input">
+                <input matInput formControlName="nextCheckNumber" placeholder="Check Number" class="modal-input">
+            </div>
+            
+        </div>
+        <div class="radio-btns">
+            <label>
+                <input type="radio" formControlName="type" value="savings" required>
+                Savings
+            </label>
+            <label>
+                <input type="radio" formControlName="type" value="checking" required>
+                Checking
+            </label>
+        </div>
+        <div class="modal-btns">
+            <button class="cancel-button" id="closeModalBtn" type="button" mat-button (click)="close()">Cancel</button>
+            <button class="add-button" mat-button type="submit">Create</button>
+        </div>
+    </form>
+</div>
+

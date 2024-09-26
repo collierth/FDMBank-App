@@ -1,0 +1,19 @@
+<div id="updateModal" class="backdrop">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="modal-content" id="updateForm">
+        <div class="modal-header">
+            <h2>Update Customer</h2>
+        </div>
+
+        <div class="modal-fields">
+            <input matInput formControlName="name" placeholder="Name" class="modal-input">
+            <div formGroupName="address">
+                <input matInput formControlName="postalCode" placeholder="Postal Code" class="modal-input">
+            </div>
+        </div>
+        <div class="modal-btns">
+            <button class="cancel-button" id="closeModalBtn" type="button" mat-button (click)="close()">Cancel</button>
+            <button class="add-button" mat-button type="submit">Update</button>
+        </div>
+    </form>
+</div>
+

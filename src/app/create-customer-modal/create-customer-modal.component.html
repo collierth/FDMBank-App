@@ -1,0 +1,30 @@
+<div id="createModal" class="backdrop">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="modal-content" id="customerForm">
+        <div class="modal-header">
+            <span>Create New Customer</span>
+        </div>
+
+        <div class="modal-fields">
+            <input matInput formControlName="name" placeholder="Name" class="modal-input">
+            <div formGroupName="address">
+                <input matInput formControlName="streetNumber" placeholder="Street Number" class="modal-input">
+                <input matInput formControlName="postalCode" placeholder="Postal Code" class="modal-input">
+            </div>
+        </div>
+        <div class="radio-btns">
+            <label>
+                <input type="radio" formControlName="type" value="Person" required>
+                Person
+            </label>
+            <label>
+                <input type="radio" formControlName="type" value="Company" required>
+                Company
+            </label>
+        </div>
+        <div class="modal-btns">
+            <button class="cancel-button" id="closeModalBtn" type="button" mat-button (click)="close()">Cancel</button>
+            <button class="add-button" mat-button type="submit">Create</button>
+        </div>
+    </form>
+</div>
+

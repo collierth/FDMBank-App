@@ -1,0 +1,25 @@
+<div id="transactionModal" class="backdrop">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="modal-content" id="updateForm">
+        <div class="modal-header">
+            <h2>Make Transaction</h2>
+        </div>
+
+        <div class="modal-fields">
+            <input matInput formControlName="amount" placeholder="Amount" class="modal-input">
+        </div>
+        <div class="radio-btns">
+            <label>
+                <input type="radio" formControlName="type" value="deposit" required>
+                Deposit
+            </label>
+            <label>
+                <input type="radio" formControlName="type" value="withdraw" required>
+                Withdraw
+            </label>
+        </div>
+        <div class="modal-btns">
+            <button class="cancel-button" id="closeModalBtn" type="button" mat-button (click)="close()">Cancel</button>
+            <button class="add-button" mat-button type="submit">Confirm</button>
+        </div>
+    </form>
+</div>

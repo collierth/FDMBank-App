@@ -1,0 +1,64 @@
+<div class="accounts-wrapper">
+    <div class="accounts-table-container">
+        <div class="accounts-heading">
+            <div class="accounts-top">
+                <span class="heading">Accounts</span>
+                <button id="openModalBtn" class="add-button" mat-button (click)="openCreateAccountModal()">Create New Account<i class="material-icons">add_card</i></button>
+            </div>
+            <form (ngSubmit)="onSubmit()" class="search-container">
+                <div class="search-functions">
+                    <div class="search-criteria">
+                        <span>Filter By:</span>
+                        <label>
+                            <input type="radio" [(ngModel)]="selectedFilter" (change)="updatePlaceholder($event)" name="searchFilter" value="ID" required checked>
+                            ID
+                        </label>
+                        <label>
+                            <input type="radio" [(ngModel)]="selectedFilter" (change)="updatePlaceholder($event)" name="searchFilter" value="City" required>
+                            City
+                        </label>
+                    </div>
+                    <mat-icon class="reset-icon" (click)="clearSearch()">rotate_left</mat-icon>
+                </div>
+                <div class="searchbar">
+                    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" [placeholder]="placeholder" class="searchfield" required>
+                    <button type="submit" class="search-button">Search</button>
+                </div>
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Account #</th>
+                    <th>Balance</th>
+                    <th>Interest Rate</th>
+                    <th>Check #</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="item-row" *ngFor="let account of accounts">
+                    <td>{{account.accountId}}</td>
+                    <td>{{account.balance | currency}}</td>
+                    <td>{{account.interestRate | percent}}</td>
+                    <td>{{account.nextCheckNumber}}</td>
+                    <td class="item-buttons">
+                        <button class="table-button" mat-button (click)="openTransactionModal(account.accountId)">Update</button>
+                        <button class="table-button" (click)="deleteAccount(account.accountId)" style="--button-text: white; 
+                        --button-color: #f0235a;
+                        --button-border: none;">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="accounts.length === 0">
+            No accounts found.
+        </div>
+    </div>
+    <div class="accounts-services">
+        <span class="heading">Services</span>
+        <a href="AccountFinderID.html" class="service-box">Find Accounts By Id</a>
+        <a href="AccountFinderCity.html" class="service-box">Find Accounts By City</a>
+    </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="bento-wrapper">
+    <div class="bento-box">
+        <div class="row">
+            <a routerLink="/customers" class="col wide">
+                <div class="label-container">
+                    <mat-icon class="large-icon">supervised_user_circle</mat-icon>
+                    <span>Customers</span>
+                </div>
+            </a>
+            <div class="col thin">
+                <span class="heading">Customers Serviced</span>
+                <span class="number">{{customerCount}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col thin">
+                <span class="heading">Accounts Opened</span>
+                <span class="number">{{accountCount}}</span>
+            </div>
+            <a routerLink="/accounts" class="col wide acc">
+                <div class="label-container">
+                    <span>Accounts</span>
+                    <mat-icon class="large-icon">savings</mat-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
