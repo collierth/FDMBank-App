@@ -1,0 +1,151 @@
+.detail-wrapper {
+    width: 100%;
+    min-height: 83vh;
+    display: flex;
+    justify-content: center;
+}
+
+.detail-box {
+    background-color: white;
+    width: 70%;
+    max-height: 70vh;
+    margin-top: 48px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.detail-left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.customer-info {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.actions {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2em;
+}
+
+.action-btn {
+    font-size: 16px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid black;
+    width: 10ch;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+.action-btn:hover {
+    color: var(--primary-color);
+}
+
+.delete:hover {
+    color: red;
+}
+
+.detail-right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 20px;
+}
+
+.account-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.acc-action-btn {
+    font-size: 12px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid black;
+    width: 10ch;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+.acc-action-btn:hover {
+    color: var(--primary-color);
+}
+
+.account-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.account-box {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,.1);
+    font-size: 12px;
+}
+
+.account-box-left {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  
+    .detail-box {
+        width: 90%;
+    }
+
+    .detail-right {
+        align-items: center;
+    }
+
+    .account-wrapper {
+        flex-direction: column;
+    }
+
+    .account-actions {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .acc-action-btn {
+        font-size: 10px;
+        height: 25px;
+    }
+
+    .account-box {
+        width: 100%;
+    }
+}

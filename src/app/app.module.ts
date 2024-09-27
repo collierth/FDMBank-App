@@ -20,6 +20,8 @@ import { CreateCustomerModalComponent } from './create-customer-modal/create-cus
 import { UpdateCustomerModalComponent } from './update-customer-modal/update-customer-modal.component';
 import { CreateAccountModalComponent } from './create-account-modal/create-account-modal.component';
 import { TransactionModalComponent } from './transaction-modal/transaction-modal.component';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { TransferModalComponent } from './transfer-modal/transfer-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TransactionModalComponent } from './transaction-modal/transaction-modal
     CreateCustomerModalComponent,
     UpdateCustomerModalComponent,
     CreateAccountModalComponent,
-    TransactionModalComponent
+    TransactionModalComponent,
+    CustomerDetailComponent,
+    TransferModalComponent
   ],
   imports: [
     BrowserModule,

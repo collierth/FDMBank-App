@@ -1,67 +1,71 @@
-.accounts-wrapper {
+.section-wrapper {
     width: 100%;
     min-height: 83vh;
     display: flex;
     justify-content: center;
-    gap: 2em;
 }
 
-.accounts-table-container {
+.section-box {
     background-color: white;
-    width: 50%;
+    width: 70%;
     max-height: 70vh;
     margin-top: 48px;
     border-radius: 20px;
-    padding: 20px;
-    overflow: auto;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
     box-shadow: 0px 0px 10px 2px rgba(0,0,0,.1);
+    overflow: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.accounts-table-container::-webkit-scrollbar {
+.section-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 0 12px 20px -1px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+.section-header-group {
+    flex: calc(1 / 3);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.section-box::-webkit-scrollbar {
     width: 10px;
 }
 
-.accounts-table-container::-webkit-scrollbar-track {
+.section-box::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 20px;
 }
 
-.accounts-table-container::-webkit-scrollbar-thumb {
+.section-box::-webkit-scrollbar-thumb {
     background: lightgray;
     border-radius: 20px;
 }
 
-.accounts-table-container::-webkit-scrollbar-thumb:hover {
+.section-box::-webkit-scrollbar-thumb:hover {
     background: gray;
 }
 
-.accounts-heading {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-}
-
-.accounts-top {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
-}
-
-.heading {
-    font-weight: bold;
-    font-size: 36px;
-}
-
-.table {
-    width: 100%;
+.section-table {
+    width: 90%;
     padding: 1rem;
     border-collapse: collapse;
     border-spacing: 0;
@@ -71,6 +75,11 @@ th, td {
    text-align: left;
    padding: 1rem;
    border: none;
+}
+
+.item-row-a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .item-row {
@@ -88,37 +97,43 @@ th, td {
     display: flex;
 }
 
-.accounts-services {
-    background-color: white;
-    width: 20%;
-    height: 60vh;
-    margin-top: 48px;
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0px 0px 10px 2px rgba(0,0,0,.1);
+.account-cell {
+    font-size: 12px;
+    overflow: auto;
 }
 
-.service-box {
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(to bottom right, rgb(60, 220, 153), var(--primary-color));
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 36px;
-    font-weight: 600;
-    color: white;
-    transition: all .2s ease;
-    line-height: 1.2;
-}
+@media only screen and (max-width: 600px) {
+  
+    .section-box {
+        width: 90%;
+        min-height: 70vh;
+        overflow: visible;
+    }
 
-.service-box:hover {
-    box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.1);
-    scale: 102%;
+    .section-header {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .section-header-group {
+        flex-direction: column;
+        
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    th, td {
+        padding: .5rem
+    }
+
+    .section-table {
+        width: 90%;
+        font-size: 10px;
+    }
+
+    .extra {
+        display: none;
+    }
 }

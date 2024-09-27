@@ -139,3 +139,21 @@
               transform: translateY(-6px) rotate(-1.2deg);
     }
   }
+
+@media only screen and (max-width: 600px) {
+  
+  .bento-box {
+    width: 90%;
+    height: 70vh;
+  }
+
+  .wide {
+    flex: 1;
+    width: 90%;
+    font-size: 24px;
+  }
+
+  .thin {
+    display: none;
+  }
+}

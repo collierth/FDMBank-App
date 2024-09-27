@@ -6,7 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCustomerModalComponent } from '../create-customer-modal/create-customer-modal.component';
-import { response } from 'express';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UpdateCustomerModalComponent } from '../update-customer-modal/update-customer-modal.component';
 
@@ -22,7 +22,7 @@ export class CustomersComponent implements OnInit {
   searchQuery: string = '';
   selectedFilter: string = '';
 
-  constructor(private customerService: CustomerService, public dialog: MatDialog) {
+  constructor(private customerService: CustomerService, public dialog: MatDialog, private router: Router) {
 
   }
 
@@ -51,6 +51,10 @@ export class CustomersComponent implements OnInit {
       // }
     }
 
+    navigateToCustomerDetail(customerId: number) {
+      this.router.navigate(['/customerDetail'], { queryParams: { id: customerId.toString() } });
+    }
+
     openCreateModal() {
       const createDialogRef = this.dialog.open(CreateCustomerModalComponent);
 
@@ -63,12 +67,14 @@ export class CustomersComponent implements OnInit {
       })
     }
 
-    openUpdateModal(id: number) {
-      const updateDialogRef = this.dialog.open(UpdateCustomerModalComponent);
+    openUpdateModal(customer: Customer) {
+      const updateDialogRef = this.dialog.open(UpdateCustomerModalComponent, {
+        data: { customer }
+      });
 
       updateDialogRef.afterClosed().subscribe(result => {
         if(result) {
-          this.updateCustomer(result, id);
+          this.updateCustomer(result, customer.customerId);
         }
       })
     }

@@ -1,0 +1,39 @@
+<div class="detail-wrapper">
+    <div class="detail-box">
+        <div class="detail-left" *ngIf="customer">
+            <div class="customer-info">
+                <span class="name">{{customer.name}}</span>
+                <span class="title">Customer Information</span>
+                <span>{{customer.address.streetNumber}}</span>
+                <span>{{customer.address.city}}, {{customer.address.province}}</span>
+                <span>{{customer.address.postalCode}}</span>
+            </div>
+            <div class="actions">
+                <button class="action-btn" mat-button (click)="openUpdateModal(customer)">Update Profile</button>
+                <button class="action-btn" (click)="openTransferModal(customer.customerId)">Make Transfer</button>
+                <button class="action-btn delete" (click)="deleteCustomer(customer.customerId)">Delete</button>
+            </div>
+        </div>
+        <div class="detail-right">
+            <span>{{customer?.accounts?.length}} accounts</span>
+            <div class="account-wrapper" *ngFor="let account of customer?.accounts">
+                <div class="account-box" >
+                    <div class="account-box-left">
+                        <span>{{account.nickname}}</span>
+                        <span>{{account.accountId}}</span>
+                    </div>
+                    <div class="account-box-right">
+                        <span>{{account.balance | currency}}</span>
+                    </div>
+                </div>
+                <div class="account-actions">
+                    <button class="acc-action-btn" (click)="openTransactionModal(account.accountId)">Make Transaction</button>
+                    <button class="acc-action-btn delete" (click)="deleteAccount(account.accountId)">Delete</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+

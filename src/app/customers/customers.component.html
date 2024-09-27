@@ -1,32 +1,36 @@
-<div class="customers-wrapper">
-    <div class="customers-table-container">
-        <div class="customers-heading">
-            <div class="customers-top">
-                <span class="heading">Customers</span>
+<div class="section-wrapper">
+    <div class="section-box">
+        <div class="section-header">
+            <div class="section-header-group">
+                <span class="section-title">Customers</span>
+            </div>
+            <div class="section-header-group">
+                <form (ngSubmit)="onSubmit()" class="search-container">
+                    <div class="search-functions">
+                        <div class="search-criteria">
+                            <span>Filter By:</span>
+                            <label>
+                                <input type="radio" [(ngModel)]="selectedFilter" (change)="updatePlaceholder($event)" name="searchFilter" value="ID" required checked>
+                                ID
+                            </label>
+                            <label>
+                                <input type="radio" [(ngModel)]="selectedFilter" (change)="updatePlaceholder($event)" name="searchFilter" value="City" required>
+                                City
+                            </label>
+                        </div>
+                        <mat-icon class="reset-icon" (click)="clearSearch()">rotate_left</mat-icon>
+                    </div>
+                    <div class="searchbar">
+                        <input type="text" [(ngModel)]="searchQuery" name="searchQuery" [placeholder]="placeholder" class="searchfield" required>
+                        <button type="submit" class="search-button">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="section-header-group">
                 <button id="openModalBtn" class="add-button" mat-button (click)="openCreateModal()">Create New Customer<mat-icon>add</mat-icon></button>
             </div>
-            <form (ngSubmit)="onSubmit()" class="search-container">
-                <div class="search-functions">
-                    <div class="search-criteria">
-                        <span>Filter By:</span>
-                        <label>
-                            <input type="radio" [(ngModel)]="selectedFilter" (change)="updatePlaceholder($event)" name="searchFilter" value="ID" required checked>
-                            ID
-                        </label>
-                        <label>
-                            <input type="radio" [(ngModel)]="selectedFilter" (change)="updatePlaceholder($event)" name="searchFilter" value="City" required>
-                            City
-                        </label>
-                    </div>
-                    <mat-icon class="reset-icon" (click)="clearSearch()">rotate_left</mat-icon>
-                </div>
-                <div class="searchbar">
-                    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" [placeholder]="placeholder" class="searchfield" required>
-                    <button type="submit" class="search-button">Search</button>
-                </div>
-            </form>
         </div>
-        <table class="table">
+        <table class="section-table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -37,24 +41,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="item-row" *ngFor="let customer of customers">
+                <tr class="item-row" *ngFor="let customer of customers" (click)="navigateToCustomerDetail(customer.customerId)">
                     <td>{{customer.customerId}}</td>
                     <td>{{customer.name}}</td>
                     <td>{{customer.address.city}}, {{customer.address.province}}</td>
-                    <td>{{customer.accounts.length}}</td>
+                    <td>
+                        {{customer.accounts.length}}
+                    </td>
                     <td class="item-buttons">
-                        <button class="table-button" mat-button (click)="openUpdateModal(customer.customerId)">Update</button>
-                        <button class="table-button" (click)="deleteCustomer(customer.customerId)" style="--button-text: white; 
+                        <button class="table-button" mat-button (click)="openUpdateModal(customer); $event.stopPropagation();">Update</button>
+                        <button class="table-button" (click)="deleteCustomer(customer.customerId); $event.stopPropagation();" style="--button-text: white; 
                         --button-color: #f0235a;
                         --button-border: none;">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="customers-services">
-        <span class="heading">Services</span>
-        <a href="CustomerFinderID.html" class="service-box">Find Customers By Id</a>
-        <a href="CustomerFinderCity.html" class="service-box">Find Customers By City</a>
+
     </div>
 </div>

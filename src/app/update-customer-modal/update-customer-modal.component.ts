@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Customer } from '../models/Customer';
 
 @Component({
   selector: 'app-update-customer-modal',
@@ -11,12 +12,12 @@ export class UpdateCustomerModalComponent {
 
     form: FormGroup;
 
-    constructor(public dialogRef: MatDialogRef<UpdateCustomerModalComponent>, private fb: FormBuilder) {
+    constructor(public dialogRef: MatDialogRef<UpdateCustomerModalComponent>, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any) {
 
       this.form = this.fb.group({
-        name: [''],
+        name: [this.data?.customer?.name],
         address: this.fb.group({
-          postalCode: [''],
+          postalCode: [this.data?.customer?.address?.postalCode],
         })
       });
     }

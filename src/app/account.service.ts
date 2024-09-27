@@ -52,4 +52,12 @@ export class AccountService {
     console.log(this.url+`/${body.type}/${id}/${body.amount}`);
     return this.http.patch(this.url+`/${body.type}/${id}/${body.amount}`, body);
   }
+
+  transferFrom(body: any): Observable<any> {
+    return this.http.patch(this.url+`/withdraw/${body.fromAccountId}/${body.amount}`, body);
+  }
+
+  transferTo(body: any): Observable<any> {
+    return this.http.patch(this.url+`/deposit/${body.toAccountId}/${body.amount}`, body);
+  }
 }
