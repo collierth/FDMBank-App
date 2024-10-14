@@ -32,7 +32,6 @@ export class AccountComponent implements OnInit {
 
     createAccountDialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
         this.addAccount(result);
       }
     })
@@ -79,7 +78,6 @@ export class AccountComponent implements OnInit {
     console.log(this.searchQuery);
     this.accountService.getAccountsByCity(this.searchQuery).subscribe(data => {
       this.accounts = JSON.parse(JSON.stringify(data));
-      console.log(this.accounts);
     })
   }
 

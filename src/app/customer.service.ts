@@ -8,7 +8,7 @@ import { Customer } from './models/Customer';
 })
 export class CustomerService {
 
-  private url = "http://localhost:8089/api/v1/customers";
+  private url = "https://bank-render.onrender.com/api/v1/customers";
   
 
   constructor(private http: HttpClient) { }

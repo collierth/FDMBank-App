@@ -9,7 +9,7 @@ import { Account } from './models/Account';
 })
 export class AccountService {
 
-  private url = "http://localhost:8089/api/v1/accounts";
+  private url = "https://bank-render.onrender.com/api/v1/accounts";
 
   constructor(private http: HttpClient) { }
 

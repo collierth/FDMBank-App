@@ -26,29 +26,10 @@ export class CustomersComponent implements OnInit {
 
   }
 
-  // constructor(@Inject(PLATFORM_ID) private platformId: Object, private customerService: CustomerService) {}
-
     ngOnInit(): void {
 
       this.getCustomers();
 
-      // if (isPlatformBrowser(this.platformId)) {
-        
-      //   const storedCustomers = localStorage.getItem('customers');
-
-      //   if (storedCustomers)
-      //   {
-      //     this.customers = JSON.parse(storedCustomers);
-      //   }
-      //   else {
-      //     this.customerService.getCustomers().subscribe(data => {
-      //       this.customers = JSON.parse(JSON.stringify(data));
-      //       localStorage.setItem('customers', JSON.stringify(data));
-      //       console.log(this.customers);
-      //     });
-      //   }
-
-      // }
     }
 
     navigateToCustomerDetail(customerId: number) {
@@ -104,12 +85,20 @@ export class CustomersComponent implements OnInit {
       })
     }
 
+    onSubmit() {
+      console.log(this.selectedFilter);
+      if (this.selectedFilter === 'ID') {
+        this.getCustomerById();
+      }
+      else if (this.selectedFilter === 'City') {
+        this.getCustomersByCity();
+      }
+    }
+
     getCustomerById() {
-      console.log(this.searchQuery);
       this.customerService.getCustomerById(this.searchQuery).subscribe(data => {
         this.customers.length = 0;
         this.customers.push(JSON.parse(JSON.stringify(data)));
-        console.log(this.customers);
       })
     }
 
@@ -122,17 +111,6 @@ export class CustomersComponent implements OnInit {
     updatePlaceholder(event: Event): void {
       const filterCriteria = event.target as HTMLInputElement;
       this.placeholder = `Search by ${filterCriteria.value}`;
-    }
-  
-    onSubmit() {
-      console.log(this.selectedFilter);
-      if (this.selectedFilter === 'ID') {
-        console.log("by id");
-        this.getCustomerById();
-      }
-      else if (this.selectedFilter === 'City') {
-        this.getCustomersByCity();
-      }
     }
   
     clearSearch() {
